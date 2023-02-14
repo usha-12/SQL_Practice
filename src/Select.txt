@@ -1,0 +1,143 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student2           |
+| sys                |
++--------------------+
+6 rows in set (0.02 sec)
+
+mysql> create database University;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student2           |
+| sys                |
+| university         |
++--------------------+
+7 rows in set (0.00 sec)
++----------------------+
+| Tables_in_university |
++----------------------+
+| student              |
++----------------------+
+1 row in set (0.01 sec)
+mysql> INSERT INTO student (FirstName, LastName, DptName, Subject, StudentId) values ('Priyesh', 'Kumar', 'CSE', 'Computer', '690');
+Query OK, 1 row affected (0.01 sec)
+mysql> show tables;
++----------------------+
+| Tables_in_university |
++----------------------+
+| student              |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> desc student;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| FirstName | varchar(255) | YES  |     | NULL    |       |
+| LastName  | varchar(277) | YES  |     | NULL    |       |
+| DptName   | varchar(255) | YES  |     | NULL    |       |
+| Subject   | varchar(288) | YES  |     | NULL    |       |
+| StudentId | int          | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select * from student;
++-----------+----------+---------+----------+-----------+
+| FirstName | LastName | DptName | Subject  | StudentId |
++-----------+----------+---------+----------+-----------+
+| Priyesh   | Kumar    | CSE     | Computer |       690 |
++-----------+----------+---------+----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO student (FirstName, LastName, DptName, Subject, StudentId) values ('Usha','Ahirwar', 'CSE', 'Computer','610');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++-----------+----------+---------+----------+-----------+
+| FirstName | LastName | DptName | Subject  | StudentId |
++-----------+----------+---------+----------+-----------+
+| Priyesh   | Kumar    | CSE     | Computer |       690 |
+| Usha      | Ahirwar  | CSE     | Computer |       610 |
++-----------+----------+---------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql>  INSERT INTO student (FirstName, LastName, DptName, Subject, StudentId) values ('Bharti', 'Tomar', 'IT', 'Algorithms', '620');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++-----------+----------+---------+------------+-----------+
+| FirstName | LastName | DptName | Subject    | StudentId |
++-----------+----------+---------+------------+-----------+
+| Priyesh   | Kumar    | CSE     | Computer   |       690 |
+| Usha      | Ahirwar  | CSE     | Computer   |       610 |
+| Bharti    | Tomar    | IT      | Algorithms |       620 |
++-----------+----------+---------+------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT FirstName FROM student;
++-----------+
+| FirstName |
++-----------+
+| Priyesh   |
+| Usha      |
+| Bharti    |
++-----------+
+3 rows in set (0.00 sec)
+
+mysql> select LastName from student;
++----------+
+| LastName |
++----------+
+| Kumar    |
+| Ahirwar  |
+| Tomar    |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> select DptName from student;
++---------+
+| DptName |
++---------+
+| CSE     |
+| CSE     |
+| IT      |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select FirstName, LastName from student;
++-----------+----------+
+| FirstName | LastName |
++-----------+----------+
+| Priyesh   | Kumar    |
+| Usha      | Ahirwar  |
+| Bharti    | Tomar    |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select FirstName, LastName, DptName from student;
++-----------+----------+---------+
+| FirstName | LastName | DptName |
++-----------+----------+---------+
+| Priyesh   | Kumar    | CSE     |
+| Usha      | Ahirwar  | CSE     |
+| Bharti    | Tomar    | IT      |
++-----------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
