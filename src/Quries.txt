@@ -1,0 +1,79 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| student2           |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> create database employee;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student2           |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use employee
+Database changed
+mysql> create table employees (empId int, FirstNamee varchar(255), LastName(255), Email varchar(255), AddressLine(255), City varchar(255), PinCode int );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(255), Email varchar(255), AddressLine(255), City varchar(255), PinCode int )' at line 1
+mysql> create table Employees( EmpId int NOT NULL, FirstName varchar(20) NOT NULL, Age int NOT NULL, Address char(255));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc Employees;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EmpId     | int         | NO   |     | NULL    |       |
+| FirstName | varchar(20) | NO   |     | NULL    |       |
+| Age       | int         | NO   |     | NULL    |       |
+| Address   | char(255)   | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into Employees (EmpId, FirstName, Age, Address)values('1001', 'Shivani', '26', 'Mumbai');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> desc Employees;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EmpId     | int         | NO   |     | NULL    |       |
+| FirstName | varchar(20) | NO   |     | NULL    |       |
+| Age       | int         | NO   |     | NULL    |       |
+| Address   | char(255)   | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Employees;
++-------+-----------+-----+---------+
+| EmpId | FirstName | Age | Address |
++-------+-----------+-----+---------+
+|  1001 | Shivani   |  26 | Mumbai  |
++-------+-----------+-----+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into Employees (EmpId, FirstName, Age, Address)values('1002', 'Nadeem', '28', 'Bihar');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Employees;
++-------+-----------+-----+---------+
+| EmpId | FirstName | Age | Address |
++-------+-----------+-----+---------+
+|  1001 | Shivani   |  26 | Mumbai  |
+|  1002 | Nadeem    |  28 | Bihar   |
++-------+-----------+-----+---------+
+2 rows in set (0.00 sec)
