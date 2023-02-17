@@ -1,0 +1,98 @@
+
+
+=================================AND OPERATOR=======================================================================
+mysql> select * from addressbook where state='Bs'AND email='hari@gmail.com';
++------------+-----------+---------+------------+-------+--------+--------------+----------------+--------+
+| first_name | last_name | address | city       | state | zip    | phone_number | email          | type   |
++------------+-----------+---------+------------+-------+--------+--------------+----------------+--------+
+| hari       | krishna   | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | hari@gmail.com | friend |
++------------+-----------+---------+------------+-------+--------+--------------+----------------+--------+
+1 row in set (0.00 sec)
+mysql> select * from addressbook where state='UP'AND email=' priyesh@gmail.com';
+Empty set (0.00 sec)
+mysql> select * from addressbook where state='UP'AND email='priyesh@gmail.com';
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| first_name | last_name | address | city      | state | zip    | phone_number | email             | type |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| Priyesh    | Kumar     | Noida   | Secter-12 | UP    | 110023 |    678554675 | priyesh@gmail.com | NULL |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from addressbook where state='UP'AND email='priyesh@gmail.com';
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| first_name | last_name | address | city      | state | zip    | phone_number | email             | type |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| Priyesh    | Kumar     | Noida   | Secter-12 | UP    | 110023 |    678554675 | priyesh@gmail.com | NULL |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select * from addressbook  where state='UP'AND email='priyesh@gmail.com';
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| first_name | last_name | address | city      | state | zip    | phone_number | email             | type |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+| Priyesh    | Kumar     | Noida   | Secter-12 | UP    | 110023 |    678554675 | priyesh@gmail.com | NULL |
++------------+-----------+---------+-----------+-------+--------+--------------+-------------------+------+
+1 row in set (0.00 sec)
+
+mysql> select first_name, last_name from addressbook where state='UP'AND email='priyesh@gmail.com';
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Priyesh    | Kumar     |
++------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select first_name, last_name from addressbook where state='Bs'AND zip=505002;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| hari       | krishna   |
+| imran      | sir       |
+| prince     | sir       |
++------------+-----------+
+3 rows in set (0.00 sec)
+=================================================================OR OPERATOR==========================================
+
+mysql> select first_name, last_name from addressbook where state='Bs'OR state='UP';
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Priyesh    | Kumar     |
+| hari       | krishna   |
+| imran      | sir       |
+| prince     | sir       |
++------------+-----------+
+4 rows in set (0.00 sec)
+===================================================================================NOT OPERATOR========================================
+mysql> select * from addressbook where NOT  state='Bs';
++------------+-------------+---------+-----------+-----------+--------+--------------+-------------------+---------+
+| first_name | last_name   | address | city      | state     | zip    | phone_number | email             | type    |
++------------+-------------+---------+-----------+-----------+--------+--------------+-------------------+---------+
+| Priyesh    | Kumar       | Noida   | Secter-12 | UP        | 110023 |    678554675 | priyesh@gmail.com | NULL    |
+| Deepa      | Suryavanshi | Haryana | Hisar     | Haryana   | 110043 |    634551235 | deepa@gmail.com   | family  |
+| Preeti     | Ghadge      | Mysuru  | Bangalore | Karnataka |  10012 |     95655487 | Preeti@gmail.com  | Friends |
++------------+-------------+---------+-----------+-----------+--------+--------------+-------------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select first_name, last_name from addressbook where NOT state='Bs';
++------------+-------------+
+| first_name | last_name   |
++------------+-------------+
+| Priyesh    | Kumar       |
+| Deepa      | Suryavanshi |
+| Preeti     | Ghadge      |
++------------+-------------+
+3 rows in set (0.00 sec)
+================================================================COMBINING AND, OR OPERATOR================================
+mysql> select * from addressbook where state='Bs' AND (city='Barimnagar' OR city='Secter-12');
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+| first_name | last_name | address | city       | state | zip    | phone_number | email            | type   |
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+| hari       | krishna   | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | hari@gmail.com   | friend |
+| imran      | sir       | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | mentor@gmail.com | friend |
+| prince     | sir       | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | sir@gmail.com    | family |
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
