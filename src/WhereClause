@@ -1,0 +1,54 @@
+mysql> select * from addressbook;
++------------+-------------+---------+------------+-----------+--------+--------------+-------------------+---------+
+| first_name | last_name   | address | city       | state     | zip    | phone_number | email             | type    |
++------------+-------------+---------+------------+-----------+--------+--------------+-------------------+---------+
+| Priyesh    | Kumar       | Noida   | Secter-12  | UP        | 110023 |    678554675 | priyesh@gmail.com | NULL    |
+| Deepa      | Suryavanshi | Haryana | Hisar      | Haryana   | 110043 |    634551235 | deepa@gmail.com   | family  |
+| hari       | krishna     | Brea51  | Barimnagar | Bs        | 505002 |    956554875 | hari@gmail.com    | friend  |
+| imran      | sir         | Brea51  | Barimnagar | Bs        | 505002 |    956554875 | mentor@gmail.com  | friend  |
+| prince     | sir         | Brea51  | Barimnagar | Bs        | 505002 |    956554875 | sir@gmail.com     | family  |
+| Preeti     | Ghadge      | Mysuru  | Bangalore  | Karnataka |  10012 |     95655487 | Preeti@gmail.com  | Friends |
++------------+-------------+---------+------------+-----------+--------+--------------+-------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select city from addressbook where city='Barimnagar';
++------------+
+| city       |
++------------+
+| Barimnagar |
+| Barimnagar |
+| Barimnagar |
++------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from addressbook where city;
+Empty set, 6 warnings (0.00 sec)
+
+mysql> select * from addressbook where city = 'Barimnagar';
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+| first_name | last_name | address | city       | state | zip    | phone_number | email            | type   |
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+| hari       | krishna   | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | hari@gmail.com   | friend |
+| imran      | sir       | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | mentor@gmail.com | friend |
+| prince     | sir       | Brea51  | Barimnagar | Bs    | 505002 |    956554875 | sir@gmail.com    | family |
++------------+-----------+---------+------------+-------+--------+--------------+------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select first_name, last_name, email from addressbook where city = 'Barimnagar';
++------------+-----------+------------------+
+| first_name | last_name | email            |
++------------+-----------+------------------+
+| hari       | krishna   | hari@gmail.com   |
+| imran      | sir       | mentor@gmail.com |
+| prince     | sir       | sir@gmail.com    |
++------------+-----------+------------------+
+3 rows in set (0.00 sec)
+mysql> select first_name, last_name, email from addressbook where address = 'Noida';
++------------+-----------+-------------------+
+| first_name | last_name | email             |
++------------+-----------+-------------------+
+| Priyesh    | Kumar     | priyesh@gmail.com |
++------------+-----------+-------------------+
+1 row in set (0.00 sec)
+
+mysql>
